@@ -37,7 +37,7 @@ if (document.querySelector('.latest-developments')) {
             this.address = address;
             this.type = type;
             this.id = id;
-            this.price = price;
+            this.price = String(price).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1,');
         }
         getHtmlItem() {
             return `<a href="/details/${this.id}" class="latest-developments__card card"><div class="card__top"><img class="card__img" src="../src/static/img/jpg/1.jpg"><div class="card__type ${this.type === "SupportAvailable" ? 'orange-label' : 'blue-label'}">${this.type}</div></div><div class="card__info"><p class="card__title">${this.title}</p><p class="card__address">${this.address}</p><p class="card__price-tag">New Properties for Sale from <span>£<span class="card__price-value">${this.price}</span></span></p><p class="card__additional-info">Shared Ownership Available</p></div></a>`;
